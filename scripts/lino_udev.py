@@ -50,16 +50,15 @@ if __name__ == "__main__":
                 if len(udev_rules) > 0:
                     with io.FileIO("58-lino.rules", "w") as file:
                         file.write(udev_rules)
-                    print "58-lino.rules saved."
-                    print "run: $ sudo cp 58-lino.rules /etc/udev/rules.d/58-lino.rules"
-                    print "Restart the computer once done."
+                    print "\r\n58-lino.rules saved."
+                    print "\r\nRUN: $ sudo cp 58-lino.rules /etc/udev/rules.d/58-lino.rules"
+                    print "\r\nRestart the computer once done."
                     break
                 else:
                     break
 
             elif save_rules.upper() == 'N':
                 break
-
             else:
                 pass
 sys.exit()
