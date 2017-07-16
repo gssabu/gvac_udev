@@ -54,7 +54,7 @@ if __name__ == "__main__":
                     with io.FileIO("58-lino.rules", "w") as file:
                         file.write(udev_rules)
                     print "\r\n58-lino.rules saved."
-                    print "\r\nRUN: $ sudo cp 58-lino.rules /etc/udev/rules.d/58-lino.rules"
+                    print "\r\nRUN: $ sudo cp 58-lino.rules /etc/udev/rules.d"
                     print "\r\nRestart the computer once done."
                     break
                 else:
