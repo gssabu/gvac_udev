@@ -11,6 +11,10 @@ def callback(client, action, device, user_data):
     device_id = device.get_property("ID_SERIAL_SHORT")
     model_id = device.get_property("ID_MODEL_ID")
     vendor_id = device.get_property("ID_VENDOR_ID")
+    if vendor_id == "10c4" or vendor_id == "067b":
+        kernel = "ttyUSB?"
+    else:    
+        kernel = "ttyACM?"
 
     if action == "add":
         global udev_rules
@@ -21,10 +25,7 @@ def callback(client, action, device, user_data):
             reply = raw_input("Create uDev name? (Y/N) ")
             if reply.upper() == 'Y':
                 sym_link = raw_input("What do you want to name this port? : ")
-                udev_string = "KERNEL==\"ttyACM?\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(vendor_id, model_id, device_id, sym_link)
-                if vendor_id == "10c4":
-                    udev_string = "KERNEL==\"ttyUSB?\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(vendor_id, model_id, device_id, sym_link)
-
+                udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
                 udev_rules += udev_string
                 break
 
