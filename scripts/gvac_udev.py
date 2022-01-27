@@ -52,10 +52,10 @@ if __name__ == "__main__":
             save_rules = raw_input(" Do you wany to save your uDev_rules?(Y/N) : ")
             if save_rules.upper() == 'Y':
                 if len(udev_rules) > 0:
-                    with io.FileIO("58-lino.rules", "w") as file:
+                    with io.FileIO("58-gvac.rules", "w") as file:
                         file.write(udev_rules)
-                    print "\r\n58-lino.rules saved."
-                    print "\r\nRUN: $ sudo cp 58-lino.rules /etc/udev/rules.d"
+                    print "\r\n58-gvac.rules saved."
+                    print "\r\nRUN: $ sudo cp 58-gvac.rules /etc/udev/rules.d"
                     print "\r\nRestart the computer once done."
                     break
                 else:
