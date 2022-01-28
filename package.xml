@@ -2,7 +2,7 @@
 <package>
   <name>gvac_udev</name>
   <version>0.0.1</version>
-  <description>udev rule creator for gvac</description>
+  <description>udev rule creator for gvacrobot</description>
 
   <maintainer email="gvac@todo.todo">gvac</maintainer>
 
